@@ -1,5 +1,7 @@
 module SDPA_GMP
 
+export sdpa_gmp_binary
+
 using BinaryProvider
 
 const sdpa_gmp_path = joinpath(@__DIR__, "..", "deps", "usr", "bin", "sdpa_gmp")
@@ -18,9 +20,7 @@ include(depsjl_path)
 Execute the given command literal as an argument to sdpa_gmp.
 
 """
-function sdpa_gmp_binary(arg::Cmd)
-    Base.run(`$sdpa_gmp_path $arg`)
-end
+sdpa_gmp_binary(arg::Cmd) = run(`$sdpa_gmp_path $arg`)
 
 
 
